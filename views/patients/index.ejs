@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Dr.Drilon Zekaj</title>
+    <!-- Favicon icon -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./images/favicon.png"
+    />
+    <!-- Custom Stylesheet -->
+    <link
+      href="/vendor/bootstrap-select/dist/css/bootstrap-select.min.css"
+      rel="stylesheet"
+    />
+    <link href="/css/style.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!--**********************************
+      Main wrapper start
+  ***********************************-->
+    <div id="main-wrapper">
+      <!--**********************************
+          Nav header start
+      ***********************************-->
+      <div class="nav-header">
+        <a href="index.html" class="brand-logo">
+          <img class="logo-abbr" style="margin-top: 5px;" src="../images/Optika-Syri.svg" alt="" />
+          <img class="logo-compact" src="./images/logo-text.png" alt="" />
+          <img class="brand-title" src="./images/logo-text.png" alt="" />
+        </a>
+
+        <div class="nav-control">
+          <div class="hamburger">
+            <span class="line"></span><span class="line"></span
+            ><span class="line"></span>
+          </div>
+        </div>
+      </div>
+  
+      <div class="header">
+        <div class="header-content">
+          <nav class="navbar navbar-expand">
+            <div class="collapse navbar-collapse justify-content-between">
+              <div class="header-left">
+                <div class="dashboard_bar">Dr.Drilon Zekaj</div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <!--**********************************
+          Header end ti-comment-alt
+      ***********************************-->
+
+      <!--**********************************
+          Sidebar start
+      ***********************************-->
+      <div class="deznav">
+        <div class="deznav-scroll">
+          <ul class="metismenu" id="menu">
+            <li>
+              <img src="/images/driloni.jpeg" style="width: 80px;height: 80px; margin-left: 40px;"></img>
+              <a
+                class="has-arrow ai-icon"
+                href="javascript:void()"
+                aria-expanded="false"
+              >
+                
+                <span class="nav-text">Pacientët</span>
+              </a>
+              <ul aria-expanded="false">
+                <li><a href="/patients/new">Shto Pacient</a></li>
+                <li><a href="/patients/">Lista e Pacienteve</a></li>
+                <li><a href="workoutplan.html">Shënime</a></li>
+              </ul>
+            </li>
+          </ul>
+          <div class="copyright">
+            <p>
+              <strong>OPTIKA SYRI</strong> © 2022 Të gjitha të drejtat të
+              rezervuara
+            </p>
+            <p>
+              Made with <span class="heart" style="color: red"></span> by
+              Digital Line
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--**********************************
+          Sidebar end
+      ***********************************-->
+
+      <!--**********************************
+          Content body start
+      ***********************************-->
+      <div class="content-body">
+        <!-- row -->
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title">Lista e Pacientëve</h4>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table
+                  class="table table-bordered table-striped verticle-middle table-responsive-sm"
+                >
+                  <thead>
+                 
+                    <tr>
+                      <th scope="col">Emri</th>
+                      <th scope="col">Vendbanimi</th>
+                      <th scope="col">Nr. i Kontrollës</th>
+                      <th scope="col">Datëlindja</th>
+                      <th scope="col">Veprim</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% for(patient of patients){ %>
+                    <tr>
+                      <td><%= patient.emri %></td>
+                      <td>
+                        <%= patient.vendbanimi %>
+                      </td>
+                      <td><%= patient.nrk %></td>
+                      <td><%= patient.ditelindja %></td>
+                      <td>
+                        <form action="/patients/<%= patient._id %>?_method=DELETE"   method="POST">
+                        <span
+                          ><a
+                            href="<%= patient._id %>"
+                            class="mr-4"
+                            data-toggle="tooltip"
+                            data-placement="top"
+                            title="Edit"
+                            ><i class="fa fa-eye color-success"></i> </a
+                          ><a
+                            href="<%= patient._id %>/edit "
+                            data-toggle="tooltip"
+                            data-placement="top"
+                            title="Close"
+                            ><i class="fa fa-pencil color-danger" style="padding-right: 20px;"></i></a
+                        >
+                        
+                        <button style="border: 0px solid white; width: 1px;"><a
+                        href="javascript:void()"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        title="Close"
+                        ><i class="fa fa-close color-danger" style="width: 1px !important;"></i></a
+                    ></button></span></form>
+                      </td>
+                    </tr>
+                    <% } %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--**********************************
+          Content body end
+      ***********************************-->
+
+      <!--**********************************
+          Footer start
+      ***********************************-->
+      <div class="footer">
+        <div class="copyright">
+          <p>
+            <strong>OPTIKA SYRI</strong> © 2022 Të gjitha të drejtat të
+            rezervuara
+          </p>
+          <p>
+            Made with <span class="heart" style="color: red"></span> by
+            Digital Line
+          </p>
+        </div>
+      </div>
+      <!--**********************************
+          Footer end
+      ***********************************-->
+
+      <!--**********************************
+         Support ticket button start
+      ***********************************-->
+
+      <!--**********************************
+         Support ticket button end
+      ***********************************-->
+    </div>
+    <!--**********************************
+      Main wrapper end
+  ***********************************-->
+
+    <!--**********************************
+      Scripts
+  ***********************************-->
+    <!-- Required vendors -->
+    <script src="./vendor/global/global.min.js"></script>
+    <script src="./vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="./vendor/chart.js/Chart.bundle.min.js"></script>
+    <script src="./js/custom.min.js"></script>
+    <script src="./js/deznav-init.js"></script>
+    <script src="./vendor/owl-carousel/owl.carousel.js"></script>
+
+    <!-- Chart piety plugin files -->
+    <script src="./vendor/peity/jquery.peity.min.js"></script>
+
+    <!-- Apex Chart -->
+    <script src="./vendor/apexchart/apexchart.js"></script>
+
+    <!-- Dashboard 1 -->
+    <script src="./js/dashboard/dashboard-1.js"></script>
+    <script>
+      function carouselReview() {
+        /*  testimonial one function by = owl.carousel.js */
+        jQuery(".testimonial-one").owlCarousel({
+          loop: true,
+          autoplay: true,
+          margin: 30,
+          nav: false,
+          dots: false,
+          left: true,
+          navText: [
+            '<i class="fa fa-chevron-left" aria-hidden="true"></i>',
+            '<i class="fa fa-chevron-right" aria-hidden="true"></i>',
+          ],
+          responsive: {
+            0: {
+              items: 1,
+            },
+            484: {
+              items: 2,
+            },
+            882: {
+              items: 3,
+            },
+            1200: {
+              items: 2,
+            },
+
+            1540: {
+              items: 3,
+            },
+            1740: {
+              items: 4,
+            },
+          },
+        });
+      }
+      jQuery(window).on("load", function () {
+        setTimeout(function () {
+          carouselReview();
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>
