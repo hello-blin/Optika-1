@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const methodOverride = require("method-override");
 const Patient = require("./Models/pacienti");
 const req = require("express/lib/request");
-const port = process.env.PORT || 5000;
+const port =  5000;
 mongoose.connect(
   "mongodb+srv://blini:Blini0100@optika.hsklm.mongodb.net/test",
   {
