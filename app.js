@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const methodOverride = require("method-override");
 const Patient = require("./Models/pacienti");
 const req = require("express/lib/request");
-const port =  5000;
+const port = 5000;
 mongoose.connect(
   "mongodb+srv://blini:Blini0100@optika.hsklm.mongodb.net/test",
   {
@@ -70,6 +70,6 @@ app.delete("/patients/:id", async (req, res) => {
   res.redirect("/patients");
 });
 
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log("Connected to http://localhost/" + port);
 });
