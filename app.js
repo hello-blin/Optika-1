@@ -70,6 +70,6 @@ app.delete("/patients/:id", async (req, res) => {
   res.redirect("/patients");
 });
 
-app.listen(5000, () => {
+app.listen(port, () => {
   console.log("Connected to http://localhost/" + port);
 });
